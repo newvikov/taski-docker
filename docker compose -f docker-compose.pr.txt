@@ -1,0 +1,12 @@
+docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
+
+
+docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
+docker compose -f docker-compose.production.yml exec 516a69b6917c sh -c 'cp -r /app/collected_static/. /backend_static/static/'
+
+docker compose exec backend 	cp -r /app/collected_static/. /backend_static/static/
+docker exec 2e0b12284761 sh -c 'cp -r /app/collected_static/. /backend_static/static/'
+
+
+scp -i path_to_SSH/SSH_name docker-compose.production.yml \    username@server_ip:/home/username/taski/docker-compose.production.yml 
+ssh -i C:/Users/alexa/.ssh/vm_access/yc-alexandernewvikov.dat docker-compose.production.yml \ user@158.160.20.242:/home/yc-user/taski/docker-compose.production.yml 
